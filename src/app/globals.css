@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-text-main: #333333;
+  --color-cl-main: #b89c4c;
+  --color-cl-main-hover: #b19545;
+  --color-tg: #4993d2;
+  --color-vk: #0077ff;
+  --color-icon-bg: #f2f3f7;
+  --color-gray-line: #f8f4f4;
+  --color-bg: #eff1f8;
+  --color-gray-border: #a4a0a0;
+  --color-green-main: #7fce41;
+
+  --breakpoint-l: 88rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility hamburger-toggle {
+  @apply [&>div]:h-0 [&>div]:bg-white [&>div]:before:translate-y-0 [&>div]:before:rotate-45 [&>div]:after:translate-y-0 [&>div]:after:-rotate-45;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Links */
+a {
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background-color: #eff1f8;
+  opacity: 0.4;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #b89c4c;
+  opacity: 1;
+}
+
+.swiper-pagination-horizontal.swiper-pagination-horizontal.swiper-pagination-horizontal {
+  width: auto;
+  left: 17px;
+  height: 15px;
+}
+@media screen and (min-width: 1280px) {
+  .tabs .swiper-slide {
+    width: fit-content !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media screen and (min-width: 768px) {
+  .swiper-pagination-horizontal.swiper-pagination-horizontal.swiper-pagination-horizontal {
+    bottom: 28px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .swiper-pagination-horizontal.swiper-pagination-horizontal.swiper-pagination-horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
