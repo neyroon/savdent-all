@@ -33,7 +33,7 @@ export const FormPopup = ({
 
   const handleButtonClick = async () => {
     try {
-      const res = await fetch("http://sfdent.ru:3001/callback", {
+      const res = await fetch("/callback", {
         method: "POST",
         body: JSON.stringify({
           name,
