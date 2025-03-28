@@ -23,7 +23,7 @@ export const FormBlock = () => {
 
   const handleButtonClick = async () => {
     try {
-      const res = await fetch("http://localhost:3001/callback", {
+      const res = await fetch("http://safdent:3001/callback", {
         method: "POST",
         body: JSON.stringify({
           name,
