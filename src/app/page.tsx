@@ -5,6 +5,7 @@ import { MainBlock } from "@/components/main-block/main-block";
 import { ServicesBlock } from "@/components/services-block/services-block";
 import { VideoReview } from "@/components/video-review/video-review";
 import { WorkersBlock } from "@/components/workers-block/workers-block";
+import { YandexReview } from "@/components/yandex-review/yandex-review";
 import { getStrapiURL } from "@/utils/strapi";
 
 export default async function Home() {
@@ -13,7 +14,7 @@ export default async function Home() {
   const serviceBlockPath =
     "/api/service-block?populate[0]=tabs&populate[1]=tabs.tab&populate[2]=tabs.tab.service";
   const reviewBlockPath =
-    "/api/blok-otzyvov?populate[reviews][populate]=*&populate[videos][populate]=*";
+    "/api/blok-otzyvov?populate[0]=videos&populate[1]=reviews&populate[2]=reviews.review_item&populate[3]=reviews.review_item.image";
   const workersBlockPath =
     "/api/blok-rabotniki?populate[0]=workers_slider&populate[1]=workers_slider.workers_slide&populate[2]=workers_slider.workers_slide.certificates&populate[3]=workers_slider.workers_slide.certificates.certificate_item&populate[4]=workers_slider.workers_slide.certificates.certificate_item.image&populate[5]=workers_slider.workers_slide.certificates.certificate_item.cert&populate[6]=workers_slider.workers_slide.image";
 
@@ -57,6 +58,7 @@ export default async function Home() {
         <ServicesBlock data={serviceBlock.data} />
         <WorkersBlock data={workersBlock.data} />
         <VideoReview data={reviewBlock.data} />
+        <YandexReview data={reviewBlock.data} />
         <FormBlock />
       </main>
       <Footer />
