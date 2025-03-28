@@ -9,6 +9,7 @@ const Tabs = ({ data }) => {
   const [activeTab, setActiveTab] = useState("Популярные");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [serviceName, setServiceName] = useState("");
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 1280);
@@ -60,7 +61,10 @@ const Tabs = ({ data }) => {
                 </span>
                 <button
                   className="text-[16px] font-medium text-white leading-[140%] transition-colors duration-200 bg-[#7FCE41B2] group-hover:bg-green-main py-[8px] px-[14px] rounded-full"
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setServiceName(cEl.name);
+                  }}
                 >
                   Записаться
                 </button>
@@ -93,7 +97,10 @@ const Tabs = ({ data }) => {
           </span>
           <button
             className="text-[16px] cursor-pointer font-medium text-white leading-[140%] transition-colors duration-200 bg-[#7FCE41B2] group-hover:bg-green-main py-[8px] px-[14px] rounded-full"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              setIsModalOpen(true);
+              setServiceName(cEl.name);
+            }}
           >
             Записаться
           </button>
@@ -159,6 +166,7 @@ const Tabs = ({ data }) => {
       </div>
       {isModalOpen && (
         <FormPopup
+          serviceName={serviceName}
           isModalOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
         />
