@@ -7,7 +7,7 @@ interface ModalProps {
   onClose: () => void;
 }
 
-export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
+export const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleClose = () => {
@@ -31,13 +31,19 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
   return (
     <>
       <div
-        className={classNames("fixed inset-0 z-50 overflow-y-auto transition-opacity duration-300 opacity-0", {
-          "opacity-100": showModal,
-        })}
+        className={classNames(
+          "fixed inset-0 z-50 overflow-y-auto transition-opacity duration-300 opacity-0",
+          {
+            "opacity-100": showModal,
+          }
+        )}
         onClick={handleClose}
       >
         <div className="absolute inset-0 bg-gray-600 opacity-60"></div>
-        <div className="flex min-h-full  items-center justify-center " onClick={(e) => e.stopPropagation()}>
+        <div
+          className="flex min-h-full  items-center justify-center "
+          onClick={(e) => e.stopPropagation()}
+        >
           <div
             className="relative w-fit h-fit max-h-[calc(100vh-100px)] max-w-[calc(100vw-10vw)] overflow-auto rounded-[30px] bg-white shadow-2xl"
             onClick={(e) => e.stopPropagation()}

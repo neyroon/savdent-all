@@ -33,6 +33,7 @@ export const FormBlock = () => {
       if (res.status === 200) setIsSuccess(true);
       else setIsError(true);
     } catch (e) {
+      console.log(e);
       setIsError(true);
     }
   };
