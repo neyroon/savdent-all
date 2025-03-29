@@ -99,6 +99,7 @@ export const MainBlock = ({ data }) => {
                     src={`http://127.0.0.1:1337${slide.image.url}`}
                     fill
                     alt="Изображение в слайдере"
+                    priority
                     className="absolute top-0 left-0 right-0 bottom-0 w-full h-full rounded-[30px] object-cover"
                   />
                   <div className="absolute right-[10px] md:right-[30px] bottom-[63px] md:bottom-auto md:top-[30px] p-[20px] flex flex-col gap-[10px] bg-white rounded-[16px]">

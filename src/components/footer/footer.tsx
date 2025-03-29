@@ -79,6 +79,7 @@ export const Footer = () => {
             height="179"
             frameBorder="0"
             loading="lazy"
+            title="Карта"
             className="rounded-[24px] block md:hidden w-full"
           ></iframe>
         </div>
@@ -137,6 +138,7 @@ export const Footer = () => {
               width="328"
               height="244"
               loading="lazy"
+              title="Карта"
               frameBorder="0"
               className="rounded-[24px] hidden md:block"
             ></iframe>
