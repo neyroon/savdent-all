@@ -10,7 +10,6 @@ import Image from "next/image";
 import { StarsMiniIcon } from "../icons/stars-mini";
 
 export const YandexReview = ({ data }) => {
-  console.log(data);
   return (
     <Section>
       <div className="flex flex-col gap-[50px]">
@@ -58,8 +57,8 @@ export const YandexReview = ({ data }) => {
             }}
           >
             {data.reviews.review_item.map((el, i) => (
-              <SwiperSlide key={i}>
-                <div className="rounded-[15px] py-[30px] px-[20px] bg-bg flex flex-col gap-[30px]">
+              <SwiperSlide key={i} style={{ height: "auto" }}>
+                <div className="rounded-[15px] py-[30px] px-[20px] bg-bg flex flex-col gap-[30px] h-full">
                   <div className="flex justify-between">
                     <div className="flex gap-[10px]">
                       <Image
@@ -80,7 +79,7 @@ export const YandexReview = ({ data }) => {
                     </div>
                     <StarsMiniIcon />
                   </div>
-                  <div className="p-[15px] bg-white text-text-main flex flex-col gap-[10px] rounded-[15px]">
+                  <div className="p-[15px] bg-white text-text-main flex flex-col gap-[10px] rounded-[15px] mt-auto">
                     <p className="text-[16px] leading-[140%] text-text-main overflow-hidden text-ellipsis line-clamp-4">
                       {el.review_text}
                     </p>

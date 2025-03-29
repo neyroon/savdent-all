@@ -72,14 +72,16 @@ export const Footer = () => {
             ))}
           </ul>
         </nav>
-
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3A9d259d558dc63d4fb0df5cdff84277e56e69f4c0d3d63d62f8589ab49f4b472d&amp;source=constructor"
-          width="auto"
-          height="179"
-          frameBorder="0"
-          className="rounded-[24px] block md:hidden"
-        ></iframe>
+        <div className="h-[179px]">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A9d259d558dc63d4fb0df5cdff84277e56e69f4c0d3d63d62f8589ab49f4b472d&amp;source=constructor"
+            width="auto"
+            height="179"
+            frameBorder="0"
+            loading="lazy"
+            className="rounded-[24px] block md:hidden w-full"
+          ></iframe>
+        </div>
 
         <div className="flex gap-[20px] justify-between xl:justify-start">
           <div className="flex flex-col gap-[20px]">
@@ -129,13 +131,16 @@ export const Footer = () => {
               Политика обработки <br /> персональных данных
             </Link>
           </div>
-          <iframe
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3A9d259d558dc63d4fb0df5cdff84277e56e69f4c0d3d63d62f8589ab49f4b472d&amp;source=constructor"
-            width="328"
-            height="244"
-            frameBorder="0"
-            className="rounded-[24px] hidden md:block"
-          ></iframe>
+          <div className="w-[328px] h-[244px]">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3A9d259d558dc63d4fb0df5cdff84277e56e69f4c0d3d63d62f8589ab49f4b472d&amp;source=constructor"
+              width="328"
+              height="244"
+              loading="lazy"
+              frameBorder="0"
+              className="rounded-[24px] hidden md:block"
+            ></iframe>
+          </div>
         </div>
       </div>
     </footer>

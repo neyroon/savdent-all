@@ -20,7 +20,6 @@ const Tabs = ({ data }) => {
   };
 
   const renderTabContentMobile = (el) => {
-    console.log(el.service);
     return (
       <Swiper
         spaceBetween={20}
