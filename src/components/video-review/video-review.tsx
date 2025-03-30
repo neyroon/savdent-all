@@ -60,12 +60,10 @@ export const VideoReview = ({ data }) => {
             <SwiperSlide key={i}>
               <div
                 className="rounded-[15px] h-[450px] relative flex justify-center items-center cursor-pointer"
-                onClick={() =>
-                  handleModalOpen(`http://sfdent.ru:1337${el.video.url}`)
-                }
+                onClick={() => handleModalOpen(`/strapi${el.video.url}`)}
               >
                 <video
-                  src={`http://sfdent.ru:1337${el.video.url}`}
+                  src={`/strapi${el.video.url}`}
                   className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px]"
                 />
                 <Image
