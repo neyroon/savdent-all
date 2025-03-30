@@ -59,13 +59,13 @@ export const VideoReview = ({ data }) => {
           {data?.videos?.video_item?.map((el, i) => (
             <SwiperSlide key={i}>
               <div
-                className="rounded-[15px] h-[450px] relative flex justify-center items-center"
+                className="rounded-[15px] h-[450px] relative flex justify-center items-center cursor-pointer"
                 onClick={() =>
-                  handleModalOpen(`http://127.0.0.1:1337${el.video.url}`)
+                  handleModalOpen(`http://sfdent.ru:1337${el.video.url}`)
                 }
               >
                 <video
-                  src={`http://127.0.0.1:1337${el.video.url}`}
+                  src={`http://sfdent.ru:1337${el.video.url}`}
                   className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px]"
                 />
                 <Image
