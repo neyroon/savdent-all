@@ -62,7 +62,7 @@ export const WorkersBlock = ({ data }) => {
           }}
           ref={swiperRef}
         >
-          {data.workers_slider.workers_slide.map((el, i) => {
+          {data?.workers_slider?.workers_slide?.map((el, i) => {
             return (
               <SwiperSlide key={i} style={{ height: "auto" }}>
                 <div className="rounded-[15px] bg-white border-1 border-gray-line flex flex-col gap-[20px] p-[20px] h-full">

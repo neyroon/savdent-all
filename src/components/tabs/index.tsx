@@ -126,7 +126,7 @@ const Tabs = ({ data }) => {
             className="mr-[-20px]! :md:mr-[-15px]! xl:mr-0!"
           >
             <div className="flex gap-[10px]">
-              {data.tabs.tab.map((tab) => (
+              {data?.tabs?.tab?.map((tab) => (
                 <SwiperSlide key={tab.title} style={{ height: "auto" }}>
                   <Tab
                     label={tab.title}
@@ -155,7 +155,7 @@ const Tabs = ({ data }) => {
           </span>
           <span className="text-[16px] leading-[140%] font-medium text-text-main w-[100px]"></span>
         </div>
-        {data.tabs.tab.map((el) => (
+        {data?.tabs?.tab?.map((el) => (
           <TabContent key={el.title} active={activeTab === el.title}>
             <div className="xl:flex flex-col gap-[10px] mr-[-20px] md:mr-0">
               {isMobile ? renderTabContentMobile(el) : renderTabContentDes(el)}

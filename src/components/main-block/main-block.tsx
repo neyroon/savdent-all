@@ -52,7 +52,7 @@ export const MainBlock = ({ data }) => {
         <div className="md:bg-bg md:p-[30px] rounded-[30px] md:h-[562px] flex items-center md:w-[calc(50%-10px)]">
           <div className="flex flex-col gap-[20px]">
             <h1 className="text-[22px] xl:text-[30px] text-text-main font-bold leading-[140%]">
-              {data.title_h1_markdown.split("\n").map((str, i) => (
+              {data?.title_h1_markdown.split("\n").map((str, i) => (
                 <Fragment key={i}>
                   {str}
                   <br />
@@ -60,7 +60,7 @@ export const MainBlock = ({ data }) => {
               ))}
             </h1>
             <span className="text-[20px]  text-text-main font-medium leading-[140%]">
-              {data.description_markdown.split("\n").map((str, i) => (
+              {data?.description_markdown.split("\n").map((str, i) => (
                 <Fragment key={i}>
                   {str}
                   <br />
@@ -92,14 +92,14 @@ export const MainBlock = ({ data }) => {
             loop
             modules={[Pagination]}
           >
-            {data.slide.map((slide, i) => (
+            {data?.slide?.map((slide, i) => (
               <SwiperSlide key={i}>
                 <div className=" rounded-[30px] h-[335px] md:h-[562px]   relative">
                   <Image
                     src={`http://127.0.0.1:1337${slide.image.url}`}
                     fill
                     alt="Изображение в слайдере"
-                    priority
+                    priority={i === 0}
                     className="absolute top-0 left-0 right-0 bottom-0 w-full h-full rounded-[30px] object-cover"
                   />
                   <div className="absolute right-[10px] md:right-[30px] bottom-[63px] md:bottom-auto md:top-[30px] p-[20px] flex flex-col gap-[10px] bg-white rounded-[16px]">
