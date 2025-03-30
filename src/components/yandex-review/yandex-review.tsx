@@ -59,37 +59,37 @@ export const YandexReview = ({ data }) => {
             {data?.reviews?.review_item?.map((el, i) => (
               <SwiperSlide key={i} style={{ height: "auto" }}>
                 <div className="rounded-[15px] py-[30px] px-[20px] bg-bg flex flex-col gap-[30px] h-full">
-                  <div className="flex gap-[10px]">
-                    <Image
-                      src={`http://127.0.0.1:1337${el.image.url}`}
-                      alt="Фото с отзыва"
-                      width={43}
-                      height={43}
-                      className="rounded-full shrink-0"
-                    />
-                    <div className="flex flex-col">
-                      <div className="flex justify-between">
+                  <div className="flex justify-between">
+                    <div className="flex gap-[10px]">
+                      <Image
+                        src={`http://127.0.0.1:1337${el.image.url}`}
+                        alt="Фото с отзыва"
+                        width={43}
+                        height={43}
+                        className="rounded-full"
+                      />
+                      <div className="flex flex-col">
                         <p className="text-gray-border text-[12px] leading-[20.8px]">
                           {el.date}
                         </p>
-                        <StarsMiniIcon />
+                        <p className="text-text-main text-[16px] leading-[140%] font-medium">
+                          {el.fullname}
+                        </p>
                       </div>
-                      <p className="text-text-main text-[16px] leading-[140%] font-medium">
-                        {el.fullname}
-                      </p>
                     </div>
+                    <StarsMiniIcon />
                   </div>
-                </div>
-                <div className="p-[15px] bg-white text-text-main flex flex-col gap-[10px] rounded-[15px] mt-auto">
-                  <p className="text-[16px] leading-[140%] text-text-main overflow-hidden text-ellipsis line-clamp-4">
-                    {el.review_text}
-                  </p>
-                  <Link
-                    href={el.link}
-                    className="text-[12px] leading-[20.8px] text-gray-border  "
-                  >
-                    Читать подробнее
-                  </Link>
+                  <div className="p-[15px] bg-white text-text-main flex flex-col gap-[10px] rounded-[15px] mt-auto">
+                    <p className="text-[16px] leading-[140%] text-text-main overflow-hidden text-ellipsis line-clamp-4">
+                      {el.review_text}
+                    </p>
+                    <Link
+                      href={el.link}
+                      className="text-[12px] leading-[20.8px] text-gray-border  "
+                    >
+                      Читать подробнее
+                    </Link>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
