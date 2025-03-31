@@ -31,7 +31,7 @@ export const Footer = () => {
           </Link>
           <div className="flex gap-[10px]">
             <Link
-              href="tg"
+              href="https://t.me/SafDent164"
               className=" flex items-center gap-[8px] transition-colors duration-200 text-tg hover:bg-tg hover:text-white bg-icon-bg rounded-full py-[8px] px-[10px]"
             >
               <TgIcon />
@@ -40,7 +40,7 @@ export const Footer = () => {
               </span>
             </Link>
             <Link
-              href="vk"
+              href="https://vk.com/safdent64"
               className="bg-icon-bg py-[8px] px-[10px] transition-colors duration-200 rounded-full text-vk hover:bg-vk hover:text-white flex items-center"
             >
               <VkIcon />
@@ -110,7 +110,7 @@ export const Footer = () => {
                 Режим работы
               </span>
               <span className="text-white  text-[16px] leading-[140%] ">
-                ПН-ПТ 09:00 - 18:00
+                ПН-СБ; 09:00 - 19:00
               </span>
             </div>
             <Link

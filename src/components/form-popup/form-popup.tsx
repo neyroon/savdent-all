@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Modal } from "../modal/modal";
 import { useMask } from "@react-input/mask";
 import Image from "next/image";
 import Link from "next/link";
+import { useIsMobile } from "../hooks/use-is-mobile";
 
 export const FormPopup = ({
   isModalOpen,
@@ -16,7 +17,7 @@ export const FormPopup = ({
   serviceName?: string;
   onClose: () => void;
 }) => {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
   const [name, setName] = useState("");
@@ -26,10 +27,6 @@ export const FormPopup = ({
     mask: "+7 (___) ___-__-__",
     replacement: { _: /\d/ },
   });
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 1280);
-  }, []);
 
   const handleButtonClick = async () => {
     try {

@@ -69,7 +69,7 @@ export const Header = () => {
               </a>
               <div className="hidden xl:flex  gap-[10px]">
                 <Link
-                  href="/tg"
+                  href="https://t.me/SafDent164"
                   className=" flex items-center gap-[8px] transition-colors duration-200 text-tg hover:bg-tg hover:text-white bg-icon-bg rounded-full py-[8px] px-[10px]"
                 >
                   <TgIcon />
@@ -78,7 +78,7 @@ export const Header = () => {
                   </span>
                 </Link>
                 <Link
-                  href="/vk"
+                  href="https://vk.com/safdent64"
                   className="bg-icon-bg py-[8px] px-[10px] transition-colors duration-200 rounded-full text-vk hover:bg-vk hover:text-white flex items-center"
                 >
                   <VkIcon />
@@ -150,7 +150,7 @@ export const Header = () => {
             </a>
             <div className="flex  gap-[20px]">
               <a
-                href="tg"
+                href="https://t.me/SafDent164"
                 className=" flex items-center gap-[8px] transition-colors duration-200 text-tg hover:bg-tg hover:text-white bg-icon-bg rounded-full py-[8px] px-[10px]"
               >
                 <TgIcon />
@@ -159,7 +159,7 @@ export const Header = () => {
                 </span>
               </a>
               <a
-                href="vk"
+                href="https://vk.com/safdent64"
                 className="bg-icon-bg py-[8px] px-[10px] transition-colors duration-200 rounded-full text-vk hover:bg-vk hover:text-white flex items-center"
               >
                 <VkIcon />

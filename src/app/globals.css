@@ -52,6 +52,7 @@ body {
   width: auto;
   left: 17px;
   height: 15px;
+  bottom: 24px;
 }
 @media screen and (min-width: 1280px) {
   .tabs .swiper-slide {

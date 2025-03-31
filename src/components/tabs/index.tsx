@@ -1,19 +1,16 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Tab } from "./tab";
 import { TabContent } from "./tab-content";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FormPopup } from "../form-popup/form-popup";
+import { useIsMobile } from "../hooks/use-is-mobile";
 
 const Tabs = ({ data }) => {
   const [activeTab, setActiveTab] = useState("Популярные");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [serviceName, setServiceName] = useState("");
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 1280);
-  }, []);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -27,15 +24,15 @@ const Tabs = ({ data }) => {
         speed={700}
         breakpoints={{ 768: { slidesPerView: 2.2 } }}
       >
-        {el.service.map((cEl) => (
-          <SwiperSlide key={cEl.name} style={{ height: "auto" }}>
+        {el?.service?.map((cEl, i) => (
+          <SwiperSlide key={i} style={{ height: "auto" }}>
             <div className="px-[20px] py-[25px] h-full group flex flex-col gap-[25px] rounded-[15px] transition-colors duration-200 bg-white border-1 border-transparent hover:border-[rgba(184,156,76,0.40)]">
               <div className="flex flex-col gap-[5px]">
                 <span className="text-[16px] leading-[140%] text-gray-border ">
                   Название услуги
                 </span>
                 <span className="text-[16px] leading-[140%] text-text-main ">
-                  {cEl.name}
+                  {cEl?.name}
                 </span>
               </div>
               <div className="flex flex-col gap-[5px]">
@@ -43,7 +40,7 @@ const Tabs = ({ data }) => {
                   Ценность
                 </span>
                 <span className="text-[16px] leading-[140%] text-text-main ">
-                  {cEl.value}
+                  {cEl?.value}
                 </span>
               </div>
               <div className="flex flex-col gap-[5px]">
@@ -51,18 +48,18 @@ const Tabs = ({ data }) => {
                   Что входит
                 </span>
                 <span className="text-[16px] leading-[140%] text-text-main ">
-                  {cEl.contain}
+                  {cEl?.contains}
                 </span>
               </div>
               <div className="flex justify-between mt-auto">
                 <span className="text-[16px] leading-[140%] text-cl-main bg-bg border-1 border-gray-line w-[109px] flex justify-center py-[8px] rounded-[20px] transition-colors duration-200 group-hover:text-green-main">
-                  {cEl.price}
+                  {cEl?.price}
                 </span>
                 <button
                   className="text-[16px] font-medium text-white leading-[140%] transition-colors duration-200 bg-[#7FCE41B2] group-hover:bg-green-main py-[8px] px-[14px] rounded-full"
                   onClick={() => {
                     setIsModalOpen(true);
-                    setServiceName(cEl.name);
+                    setServiceName(cEl?.name);
                   }}
                 >
                   Записаться
@@ -89,7 +86,7 @@ const Tabs = ({ data }) => {
             {cEl.value}
           </span>
           <span className="text-[16px] leading-[140%] text-gray-border w-[310px]">
-            {cEl.contain}
+            {cEl.contains}
           </span>
           <span className="text-[16px] leading-[140%] text-cl-main bg-bg border-1 border-gray-line w-[109px] flex justify-center py-[8px] rounded-[20px] transition-colors duration-200 group-hover:text-green-main">
             {cEl.price}

@@ -7,8 +7,6 @@ import Image from "next/image";
 import { Modal } from "../modal/modal";
 
 export const VideoReview = ({ data }) => {
-  console.log(data);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState("");
 
@@ -60,10 +58,14 @@ export const VideoReview = ({ data }) => {
             <SwiperSlide key={i}>
               <div
                 className="rounded-[15px] h-[450px] relative flex justify-center items-center cursor-pointer"
-                onClick={() => handleModalOpen(`/strapi${el.video.url}`)}
+                onClick={() =>
+                  handleModalOpen(el.video?.url && `/strapi${el.video.url}`)
+                }
               >
-                <video
-                  src={`/strapi${el.video.url}`}
+                <Image
+                  src={el.preview?.url && `/strapi${el.preview.url}`}
+                  alt="Превью видео"
+                  loading="lazy"
                   className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px]"
                 />
                 <Image
@@ -85,6 +87,7 @@ export const VideoReview = ({ data }) => {
             src={currentVideo}
             preload="metadata"
             playsInline
+            autoPlay
             controls
             controlsList="nodownload"
             className="w-[80vw] h-[80vh] bg-text-main"

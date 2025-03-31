@@ -1,12 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Section } from "../section/section";
 import { useMask } from "@react-input/mask";
 import { Modal } from "../modal/modal";
 import Image from "next/image";
+import { useIsMobile } from "../hooks/use-is-mobile";
 
 export const FormBlock = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
   const [name, setName] = useState("");
@@ -16,10 +17,6 @@ export const FormBlock = () => {
     mask: "+7 (___) ___-__-__",
     replacement: { _: /\d/ },
   });
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 1280);
-  }, []);
 
   const handleButtonClick = async () => {
     try {

@@ -7,6 +7,7 @@ import { Curve } from "../icons/curve";
 import { FormPopup } from "../form-popup/form-popup";
 import Image from "next/image";
 import Link from "next/link";
+import { ADMIN_URL } from "../constants";
 
 export const WorkersBlock = ({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -68,7 +69,7 @@ export const WorkersBlock = ({ data }) => {
                 <div className="rounded-[15px] bg-white border-1 border-gray-line flex flex-col gap-[20px] p-[20px] h-full">
                   <div className="relative">
                     <Image
-                      src={`http://127.0.0.1:1337${el.image.url}`}
+                      src={`${ADMIN_URL}${el.image?.url}`}
                       alt="Фотография сотрудника"
                       height={288}
                       width={255}
@@ -99,14 +100,14 @@ export const WorkersBlock = ({ data }) => {
                   <div className="flex gap-[10px]">
                     {el.certificates?.certificate_item.map((item, i) => (
                       <Link
-                        href={`http://127.0.0.1:1337${item.cert.url}`}
+                        href={`${ADMIN_URL}${item.cert.url}`}
                         target="_blank"
                         rel="noreferrer"
                         key={i}
                         className="w-[calc(25%-5px)] h-[94px] rounded-[5px] block"
                       >
                         <Image
-                          src={`http://127.0.0.1:1337${item.image.url}`}
+                          src={`${ADMIN_URL}${item.image.url}`}
                           alt="Сертификат"
                           width={55}
                           height={94}

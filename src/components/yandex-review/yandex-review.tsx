@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { StarsMiniIcon } from "../icons/stars-mini";
+import { ADMIN_URL } from "../constants";
 
 export const YandexReview = ({ data }) => {
   return (
@@ -62,7 +63,7 @@ export const YandexReview = ({ data }) => {
                   <div className="flex justify-between">
                     <div className="flex gap-[10px]">
                       <Image
-                        src={`http://127.0.0.1:1337${el.image.url}`}
+                        src={`${ADMIN_URL}${el.image.url}`}
                         alt="Фото с отзыва"
                         width={43}
                         height={43}

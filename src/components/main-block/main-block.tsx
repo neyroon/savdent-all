@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Section } from "../section/section";
 import { FormPopup } from "../form-popup/form-popup";
 import Image from "next/image";
+import { ADMIN_URL } from "../constants";
+import { useIsMobile } from "../hooks/use-is-mobile";
 
 export const MainBlock = ({ data }) => {
   const content = [
@@ -87,7 +89,7 @@ export const MainBlock = ({ data }) => {
           <Swiper
             spaceBetween={16}
             slidesPerView={1}
-            pagination={{ type: "bullets" }}
+            pagination={{ type: "bullets", clickable: true }}
             speed={700}
             loop
             modules={[Pagination]}
@@ -96,13 +98,13 @@ export const MainBlock = ({ data }) => {
               <SwiperSlide key={i}>
                 <div className=" rounded-[30px] h-[335px] md:h-[562px]   relative">
                   <Image
-                    src={`http://127.0.0.1:1337${slide.image.url}`}
+                    src={`${ADMIN_URL}${slide.image.url}`}
                     fill
                     alt="Изображение в слайдере"
                     priority={i === 0}
                     className="absolute top-0 left-0 right-0 bottom-0 w-full h-full rounded-[30px] object-cover"
                   />
-                  <div className="absolute right-[10px] md:right-[30px] bottom-[63px] md:bottom-auto md:top-[30px] p-[20px] flex flex-col gap-[10px] bg-white rounded-[16px]">
+                  <div className="absolute right-[10px] md:right-[30px] bottom-[63px] w-[157px] md:w-[182px] md:bottom-auto md:top-[30px] p-[20px] flex flex-col gap-[10px] bg-white rounded-[16px]">
                     <span className="text-[16px] text-text-main leading-[140%]">
                       {slide.title}
                     </span>
