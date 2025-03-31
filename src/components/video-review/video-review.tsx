@@ -5,6 +5,7 @@ import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { Curve } from "../icons/curve";
 import Image from "next/image";
 import { Modal } from "../modal/modal";
+import { ADMIN_URL } from "../constants";
 
 export const VideoReview = ({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -64,10 +65,10 @@ export const VideoReview = ({ data }) => {
               >
                 <Image
                   fill
-                  src={el.preview?.url && `/strapi${el.preview.url}`}
+                  src={el.preview?.url && `${ADMIN_URL}${el.preview.url}`}
                   alt="Превью видео"
                   loading="lazy"
-                  className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px]"
+                  className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px] brightness-80"
                 />
                 <Image
                   src="/assets/play.png"
