@@ -72,3 +72,8 @@ body {
     transform: translateX(-50%);
   }
 }
+
+td {
+  border: 1px solid gray;
+  padding: 10px;
+}

@@ -6,11 +6,11 @@ import Image from "next/image";
 
 export const Footer = () => {
   const navigationItems = [
-    { text: "Главная", link: "#main" },
-    { text: "Услуги и цены", link: "#price" },
-    { text: "Врачи", link: "#doctors" },
-    { text: "Отзывы", link: "#reviews" },
-    { text: "Контакты", link: "#contacts" },
+    { text: "Главная", link: "/#main" },
+    { text: "Услуги и цены", link: "/#price" },
+    { text: "Врачи", link: "/#doctors" },
+    { text: "Отзывы", link: "/#reviews" },
+    { text: "Контакты", link: "/#contacts" },
   ];
   return (
     <footer
@@ -53,7 +53,7 @@ export const Footer = () => {
             Политика <br /> конфиденциальности
           </Link>
           <Link
-            href="/"
+            href="/privacy"
             className="hidden md:block text-white opacity-70 text-[14px] leading-[140%] hover:opacity-100 transition-opacity duration-200"
           >
             Политика обработки <br /> персональных данных
@@ -126,7 +126,7 @@ export const Footer = () => {
               Политика <br /> конфиденциальности
             </Link>
             <Link
-              href="/"
+              href="/privacy"
               className="block md:hidden text-white opacity-70 text-[14px] leading-[140%] hover:opacity-100 transition-opacity duration-200"
             >
               Политика обработки <br /> персональных данных

@@ -9,11 +9,11 @@ import Image from "next/image";
 
 export const Header = () => {
   const navigationItems = [
-    { text: "Главная", link: "#main" },
-    { text: "Услуги и цены", link: "#price" },
-    { text: "Врачи", link: "#doctors" },
-    { text: "Отзывы", link: "#reviews" },
-    { text: "Контакты", link: "#contacts" },
+    { text: "Главная", link: "/#main" },
+    { text: "Услуги и цены", link: "/#price" },
+    { text: "Врачи", link: "/#doctors" },
+    { text: "Отзывы", link: "/#reviews" },
+    { text: "Контакты", link: "/#contacts" },
   ];
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);

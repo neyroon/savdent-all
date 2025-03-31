@@ -63,6 +63,7 @@ export const VideoReview = ({ data }) => {
                 }
               >
                 <Image
+                  fill
                   src={el.preview?.url && `/strapi${el.preview.url}`}
                   alt="Превью видео"
                   loading="lazy"
