@@ -5,6 +5,7 @@ import { useMask } from "@react-input/mask";
 import Image from "next/image";
 import Link from "next/link";
 import { useIsMobile } from "../hooks/use-is-mobile";
+import { Loader } from "../icons/loader";
 
 export const FormPopup = ({
   isModalOpen,
@@ -19,6 +20,7 @@ export const FormPopup = ({
 }) => {
   const isMobile = useIsMobile();
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -28,8 +30,10 @@ export const FormPopup = ({
     replacement: { _: /\d/ },
   });
 
-  const handleButtonClick = async () => {
+  const handleButtonClick = async (e) => {
+    e.preventDefault();
     try {
+      setIsLoading(true);
       const res = await fetch("/callback", {
         method: "POST",
         body: JSON.stringify({
@@ -44,6 +48,8 @@ export const FormPopup = ({
     } catch (e) {
       console.log(e);
       setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -92,7 +98,10 @@ export const FormPopup = ({
               </span>
             </div>
 
-            <form className="flex flex-col gap-[20px] text-[16px]  leading-[140%] text-text-main">
+            <form
+              className="flex flex-col gap-[20px] text-[16px]  leading-[140%] text-text-main"
+              onSubmit={handleButtonClick}
+            >
               <input
                 type="text"
                 className="px-[15px] py-[19px] rounded-[6px] bg-bg placeholder:text-gray-border"
@@ -105,40 +114,40 @@ export const FormPopup = ({
               <input
                 type="tel"
                 ref={inputRef}
-                className="p-[15px] rounded-[6px] bg-bg placeholder:text-gray-border"
+                className="p-[15px] py-[19px] rounded-[6px] bg-bg placeholder:text-gray-border"
                 placeholder="Номер телефона"
                 onInput={(e) => {
                   setPhone(e.currentTarget.value);
                 }}
+                required
               />
-            </form>
 
-            <div className="flex flex-col gap-[15px]">
-              <div className="flex xl:flex-row flex-col gap-[10px] md:gap-[30px]">
-                <button
-                  className="text-[16px] w-full cursor-pointer md:w-[317px] text-center font-medium text-white leading-[140%] transition-colors duration-200 bg-cl-main hover:bg-cl-main-hover py-[15px] px-[30px] rounded-full"
-                  type="submit"
-                  onClick={handleButtonClick}
-                >
-                  Записаться
-                </button>
-                <div className="flex flex-col gap-[2px]">
-                  <span className="text-gray-border text-[14px] leading-[140%]">
-                    Контактный телефон:
-                  </span>
-                  <Link
-                    href="tel:+79297770474"
-                    className="text-text-main  text-[16px] leading-[140%] "
+              <div className="flex flex-col gap-[15px]">
+                <div className="flex xl:flex-row flex-col gap-[10px] md:gap-[30px]">
+                  <button
+                    className="text-[16px] w-full cursor-pointer md:w-[317px] text-center font-medium text-white leading-[140%] transition-colors duration-200 bg-cl-main hover:bg-cl-main-hover py-[15px] px-[30px] rounded-full flex justify-center"
+                    type="submit"
                   >
-                    +7 (929) 777-04-74
-                  </Link>
+                    {isLoading ? <Loader /> : <>Записаться</>}
+                  </button>
+                  <div className="flex flex-col gap-[2px]">
+                    <span className="text-gray-border text-[14px] leading-[140%]">
+                      Контактный телефон:
+                    </span>
+                    <Link
+                      href="tel:+79297770474"
+                      className="text-text-main  text-[16px] leading-[140%] "
+                    >
+                      +7 (929) 777-04-74
+                    </Link>
+                  </div>
                 </div>
+                <span className="text-gray-border text-[12px] leading-[140%]">
+                  Нажимая кнопку “Записаться” я соглашаюсь с обработкой
+                  персональных данных и политикой конфиденциальности
+                </span>
               </div>
-              <span className="text-gray-border text-[12px] leading-[140%]">
-                Нажимая кнопку “Записаться” я соглашаюсь с обработкой
-                персональных данных и политикой конфиденциальности
-              </span>
-            </div>
+            </form>
           </div>
         </div>
       ) : (

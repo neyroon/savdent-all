@@ -60,7 +60,9 @@ export const VideoReview = ({ data }) => {
               <div
                 className="rounded-[15px] h-[450px] relative flex justify-center items-center cursor-pointer"
                 onClick={() =>
-                  handleModalOpen(el.video?.url && `/strapi${el.video.url}`)
+                  handleModalOpen(
+                    el.video?.url && `${ADMIN_URL}${el.video.url}`
+                  )
                 }
               >
                 <Image
@@ -68,7 +70,7 @@ export const VideoReview = ({ data }) => {
                   src={el.preview?.url && `${ADMIN_URL}${el.preview.url}`}
                   alt="Превью видео"
                   loading="lazy"
-                  className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px] brightness-80"
+                  className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px] brightness-80 hover:brightness-90"
                 />
                 <Image
                   src="/assets/play.png"
