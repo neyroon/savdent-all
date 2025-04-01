@@ -42,7 +42,7 @@ export default async function Home() {
     mergedOptions
   );
   const reviewBlock = await reviewBlockResponseData.json();
-  console.log(reviewBlock);
+
   const workersBlockrequestUrl = getStrapiURL(workersBlockPath);
   const workersBlockResponseData = await fetch(
     workersBlockrequestUrl,
