@@ -88,12 +88,14 @@ export const YandexReview = ({ data }) => {
                     <p className="text-[16px] leading-[140%] text-text-main overflow-hidden text-ellipsis line-clamp-4">
                       {el?.review_text}
                     </p>
-                    <Link
-                      href={el?.link}
-                      className="text-[12px] leading-[20.8px] text-gray-border  "
-                    >
-                      Читать подробнее
-                    </Link>
+                    {el?.link && (
+                      <Link
+                        href={el?.link}
+                        className="text-[12px] leading-[20.8px] text-gray-border  "
+                      >
+                        Читать подробнее
+                      </Link>
+                    )}
                   </div>
                 </div>
               </SwiperSlide>

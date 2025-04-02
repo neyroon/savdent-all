@@ -65,13 +65,15 @@ export const VideoReview = ({ data }) => {
                   )
                 }
               >
-                <Image
-                  fill
-                  src={el?.preview?.url && `${ADMIN_URL}${el.preview.url}`}
-                  alt="Превью видео"
-                  loading="lazy"
-                  className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px] brightness-80 hover:brightness-90"
-                />
+                {el?.preview?.url && (
+                  <Image
+                    fill
+                    src={`${ADMIN_URL}${el.preview.url}`}
+                    alt="Превью видео"
+                    loading="lazy"
+                    className="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-cover rounded-[15px] brightness-80 hover:brightness-90"
+                  />
+                )}
                 <Image
                   src="/assets/play.png"
                   alt="Воспроизвести"
