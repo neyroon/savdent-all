@@ -52,7 +52,7 @@ const Tabs = ({ data }) => {
                 </span>
               </div>
               <div className="flex justify-between mt-auto">
-                <span className="text-[16px] leading-[140%] text-cl-main bg-bg border-1 border-gray-line w-[109px] flex justify-center py-[8px] rounded-[20px] transition-colors duration-200 group-hover:text-green-main">
+                <span className="text-[16px] leading-[140%] text-cl-main bg-bg border-1 border-gray-line w-[150px] flex justify-center py-[8px] rounded-[20px] transition-colors duration-200 group-hover:text-green-main">
                   {cEl?.price}
                 </span>
                 <button
@@ -88,7 +88,7 @@ const Tabs = ({ data }) => {
           <span className="text-[16px] leading-[140%] text-gray-border w-[310px]">
             {cEl.contains}
           </span>
-          <span className="text-[16px] leading-[140%] text-cl-main bg-bg border-1 border-gray-line w-[109px] flex justify-center py-[8px] rounded-[20px] transition-colors duration-200 group-hover:text-green-main">
+          <span className="text-[16px] leading-[140%] text-cl-main bg-bg border-1 border-gray-line w-[150px] flex justify-center py-[8px] rounded-[20px] transition-colors duration-200 group-hover:text-green-main">
             {cEl.price}
           </span>
           <button
@@ -147,7 +147,7 @@ const Tabs = ({ data }) => {
           <span className="text-[16px] leading-[140%] font-medium text-text-main w-[310px]">
             Что входит
           </span>
-          <span className="text-[16px] leading-[140%] font-medium text-text-main w-[103px]">
+          <span className="text-[16px] leading-[140%] font-medium text-text-main w-[150px]">
             Стоимость
           </span>
           <span className="text-[16px] leading-[140%] font-medium text-text-main w-[100px]"></span>
