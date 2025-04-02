@@ -72,9 +72,9 @@ export const WorkersBlock = ({ data }) => {
                       <Image
                         src={`${ADMIN_URL}${el.image?.url}`}
                         alt="Фотография сотрудника"
-                        height={288}
+                        height={330}
                         width={255}
-                        className="w-full h-[288px] object-cover rounded-[15px]"
+                        className="w-full h-[330px] object-cover rounded-[15px]"
                         loading="lazy"
                       />
                     )}

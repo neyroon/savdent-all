@@ -98,7 +98,7 @@ export const MainBlock = ({ data }) => {
           >
             {data?.slide?.map((slide, i) => (
               <SwiperSlide key={i}>
-                <div className=" rounded-[30px] h-[335px] md:h-[562px]   relative">
+                <div className=" rounded-[30px] h-[460px] md:h-[562px]   relative">
                   {slide?.image?.url && (
                     <Image
                       src={`${ADMIN_URL}${slide?.image?.url}`}
