@@ -68,19 +68,21 @@ export const WorkersBlock = ({ data }) => {
               <SwiperSlide key={i} style={{ height: "auto" }}>
                 <div className="rounded-[15px] bg-white border-1 border-gray-line flex flex-col gap-[20px] p-[20px] h-full">
                   <div className="relative">
-                    <Image
-                      src={`${ADMIN_URL}${el.image?.url}`}
-                      alt="Фотография сотрудника"
-                      height={288}
-                      width={255}
-                      className="w-full h-[288px] object-cover rounded-[15px]"
-                      loading="lazy"
-                    />
+                    {el.image?.url && (
+                      <Image
+                        src={`${ADMIN_URL}${el.image?.url}`}
+                        alt="Фотография сотрудника"
+                        height={288}
+                        width={255}
+                        className="w-full h-[288px] object-cover rounded-[15px]"
+                        loading="lazy"
+                      />
+                    )}
                     <button
                       className="absolute cursor-pointer right-[20px] top-[20px] text-[16px] font-medium text-cl-main leading-[140%] transition-colors duration-200 bg-white hover:text-text-main py-[8px] px-[20px] rounded-full"
                       onClick={() => {
                         setIsModalOpen(true);
-                        setName(el.title);
+                        setName(el?.title);
                       }}
                     >
                       Записаться
@@ -88,10 +90,10 @@ export const WorkersBlock = ({ data }) => {
                   </div>
                   <div className="flex flex-col gap-[10px]">
                     <span className="text-[16px] text-[#100F10] leading-[140%] text-center h-[45px]">
-                      {el.title}
+                      {el?.title}
                     </span>
                     <span className="text-[16px] text-[#100F10] leading-[140%] text-center">
-                      {el.description}
+                      {el?.description}
                     </span>
                     <span className="text-[16px] text-[#969FA8] leading-[140%] text-center">
                       Образование и практика:
@@ -99,22 +101,28 @@ export const WorkersBlock = ({ data }) => {
                   </div>
                   <div className="flex gap-[10px]">
                     {el.certificates?.certificate_item.map((item, i) => (
-                      <Link
-                        href={`${ADMIN_URL}${item.cert.url}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        key={i}
-                        className="w-[calc(25%-5px)] h-[94px] rounded-[5px] block"
-                      >
-                        <Image
-                          src={`${ADMIN_URL}${item.image.url}`}
-                          alt="Сертификат"
-                          width={55}
-                          height={94}
-                          className="w-full h-full object-cover contrast-[0.8] hover:contrast-[0.7] rounded-[5px]"
-                          loading="lazy"
-                        />
-                      </Link>
+                      <>
+                        {item?.cert?.url && (
+                          <Link
+                            href={`${ADMIN_URL}${item?.cert?.url}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={i}
+                            className="w-[calc(25%-5px)] h-[94px] rounded-[5px] block"
+                          >
+                            {item?.image?.url && (
+                              <Image
+                                src={`${ADMIN_URL}${item?.image?.url}`}
+                                alt="Сертификат"
+                                width={55}
+                                height={94}
+                                className="w-full h-full object-cover contrast-[0.8] hover:contrast-[0.7] rounded-[5px]"
+                                loading="lazy"
+                              />
+                            )}
+                          </Link>
+                        )}
+                      </>
                     ))}
                   </div>
                 </div>
