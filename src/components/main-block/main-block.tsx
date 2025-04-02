@@ -47,6 +47,7 @@ export const MainBlock = ({ data }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState("");
+  const isMobile = useIsMobile();
 
   return (
     <Section id="main" className="scroll-mt-[73px]">
@@ -54,20 +55,21 @@ export const MainBlock = ({ data }) => {
         <div className="md:bg-bg md:p-[30px] rounded-[30px] md:h-[562px] flex items-center md:w-[calc(50%-10px)]">
           <div className="flex flex-col gap-[20px]">
             <h1 className="text-[22px] xl:text-[30px] text-text-main font-bold leading-[140%]">
-              {data?.title_h1_markdown.split("\n").map((str, i) => (
-                <Fragment key={i}>
-                  {str}
-                  <br />
-                </Fragment>
-              ))}
+              {isMobile ? (
+                <>
+                  Стоматология в Саратове <br /> без боли и ожиданий <br /> —
+                  лечим зубы за 1 день
+                </>
+              ) : (
+                <>
+                  Стоматология в Саратове без боли и ожиданий — лечим зубы за 1
+                  день
+                </>
+              )}
             </h1>
             <span className="text-[20px]  text-text-main font-medium leading-[140%]">
-              {data?.description_markdown.split("\n").map((str, i) => (
-                <Fragment key={i}>
-                  {str}
-                  <br />
-                </Fragment>
-              ))}
+              Устраняем боль, восстанавливаем зубы и возвращаем уверенность в
+              улыбке
             </span>
             <div className="flex flex-col xl:flex-row gap-[15px]">
               <button
@@ -97,26 +99,28 @@ export const MainBlock = ({ data }) => {
             {data?.slide?.map((slide, i) => (
               <SwiperSlide key={i}>
                 <div className=" rounded-[30px] h-[335px] md:h-[562px]   relative">
-                  <Image
-                    src={`${ADMIN_URL}${slide.image.url}`}
-                    fill
-                    alt="Изображение в слайдере"
-                    priority={i === 0}
-                    className="absolute top-0 left-0 right-0 bottom-0 w-full h-full rounded-[30px] object-cover"
-                  />
+                  {slide?.image?.url && (
+                    <Image
+                      src={`${ADMIN_URL}${slide?.image?.url}`}
+                      fill
+                      alt="Изображение в слайдере"
+                      priority={i === 0}
+                      className="absolute top-0 left-0 right-0 bottom-0 w-full h-full rounded-[30px] object-cover"
+                    />
+                  )}
                   <div className="absolute right-[10px] md:right-[30px] bottom-[63px] w-[157px] md:w-[182px] md:bottom-auto md:top-[30px] p-[20px] flex flex-col gap-[10px] bg-white rounded-[16px]">
                     <span className="text-[16px] text-text-main leading-[140%]">
-                      {slide.title}
+                      {slide?.title}
                     </span>
                     <span className="text-[14px] text-gray-border leading-[140%]">
-                      {slide.description}
+                      {slide?.description}
                     </span>
                   </div>
                   <button
                     className="absolute cursor-pointer right-[10px] md:right-[30px] bottom-[10px] md:bottom-[17px]  text-[16px] font-medium text-cl-main leading-[140%] transition-colors duration-200 z-50 bg-white hover:text-text-main py-[8px] px-[20px] rounded-full"
                     onClick={() => {
                       setIsModalOpen(true);
-                      setName(slide.description);
+                      setName(slide?.description);
                     }}
                   >
                     Записаться
@@ -138,17 +142,17 @@ export const MainBlock = ({ data }) => {
           }}
         >
           {content.map((el, i) => (
-            <SwiperSlide key={el.title} style={{ height: "auto" }}>
+            <SwiperSlide key={el?.title} style={{ height: "auto" }}>
               <div className="w-full h-full py-[30px] px-[15px] rounded-[15px] border-bg border-1 transition-colors duration-200 hover:bg-bg flex gap-[18px]">
                 <span className=" text-[16px] text-cl-main leading-[140%] w-[25px] h-[25px] flex items-center justify-center bg-white rounded-[6px] shrink-0 ">
                   {i + 1}
                 </span>
                 <div className="flex flex-col flex-auto gap-[10px]">
                   <span className="text-[18px] text-text-main font-medium leading-[140%]">
-                    {el.title}
+                    {el?.title}
                   </span>
                   <span className="text-[16px] text-text-main  leading-[140%]">
-                    {el.text}
+                    {el?.text}
                   </span>
                 </div>
               </div>

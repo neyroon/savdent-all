@@ -62,29 +62,31 @@ export const YandexReview = ({ data }) => {
                 <div className="rounded-[15px] py-[30px] px-[20px] bg-bg flex flex-col gap-[30px] h-full">
                   <div className="flex justify-between">
                     <div className="flex gap-[10px] w-full">
-                      <Image
-                        src={`${ADMIN_URL}${el.image.url}`}
-                        alt="Фото с отзыва"
-                        width={43}
-                        height={43}
-                        className="rounded-full shrink-0"
-                      />
+                      {el?.image?.url && (
+                        <Image
+                          src={`${ADMIN_URL}${el?.image?.url}`}
+                          alt="Фото с отзыва"
+                          width={43}
+                          height={43}
+                          className="rounded-full shrink-0"
+                        />
+                      )}
                       <div className="flex flex-col w-full">
                         <div className="flex justify-between">
                           <p className="text-gray-border text-[12px] leading-[20.8px]">
-                            {el.date}
+                            {el?.date}
                           </p>
                           <StarsMiniIcon />
                         </div>
                         <p className="text-text-main text-[16px] leading-[140%] font-medium">
-                          {el.fullname}
+                          {el?.fullname}
                         </p>
                       </div>
                     </div>
                   </div>
                   <div className="p-[15px] bg-white text-text-main flex flex-col gap-[10px] rounded-[15px] mt-auto">
                     <p className="text-[16px] leading-[140%] text-text-main overflow-hidden text-ellipsis line-clamp-4">
-                      {el.review_text}
+                      {el?.review_text}
                     </p>
                     <Link
                       href={el.link}
