@@ -68,7 +68,7 @@ export const YandexReview = ({ data }) => {
                           alt="Фото с отзыва"
                           width={43}
                           height={43}
-                          className="rounded-full shrink-0 w-[43px] h-[43px]"
+                          className="rounded-full shrink-0 w-[43px] h-[43px] object-cover"
                         />
                       )}
                       <div className="flex flex-col w-full">
