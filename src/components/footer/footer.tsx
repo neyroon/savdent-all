@@ -46,12 +46,7 @@ export const Footer = () => {
               <VkIcon />
             </Link>
           </div>
-          <Link
-            href="/"
-            className="hidden md:block text-white opacity-70 text-[14px] leading-[140%] hover:opacity-100 transition-opacity duration-200"
-          >
-            Политика <br /> конфиденциальности
-          </Link>
+
           <Link
             href="/privacy"
             className="hidden md:block text-white opacity-70 text-[14px] leading-[140%] hover:opacity-100 transition-opacity duration-200"
@@ -118,12 +113,6 @@ export const Footer = () => {
               className="text-[16px] w-[222px] font-medium text-white leading-[140%] transition-colors duration-200 bg-cl-main hover:bg-cl-main-hover py-[15px] px-[30px] rounded-full"
             >
               Записаться на прием
-            </Link>
-            <Link
-              href="/"
-              className="block md:hidden text-white opacity-70 text-[14px] leading-[140%] hover:opacity-100 transition-opacity duration-200"
-            >
-              Политика <br /> конфиденциальности
             </Link>
             <Link
               href="/privacy"

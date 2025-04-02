@@ -143,8 +143,13 @@ export const FormPopup = ({
                   </div>
                 </div>
                 <span className="text-gray-border text-[12px] leading-[140%]">
-                  Нажимая кнопку “Записаться” я соглашаюсь с обработкой
-                  персональных данных и политикой конфиденциальности
+                  Нажимая кнопку “Записаться” я соглашаюсь с 
+                  <Link
+                    href="/privacy"
+                    className=" opacity-70 leading-[140%] text-blue-400 hover:opacity-100 transition-opacity duration-200"
+                  >
+                    политикой обработки персональных данных
+                  </Link>
                 </span>
               </div>
             </form>

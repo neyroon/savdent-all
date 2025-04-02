@@ -5,6 +5,7 @@ import { useMask } from "@react-input/mask";
 import { Modal } from "../modal/modal";
 import Image from "next/image";
 import { useIsMobile } from "../hooks/use-is-mobile";
+import Link from "next/link";
 
 export const FormBlock = () => {
   const isMobile = useIsMobile();
@@ -95,8 +96,13 @@ export const FormBlock = () => {
               </div>
             </div>
             <span className="text-gray-border text-[12px] leading-[140%]">
-              Нажимая кнопку “Записаться” я соглашаюсь с обработкой персональных
-              данных и политикой конфиденциальности
+              Нажимая кнопку “Записаться” я соглашаюсь с 
+              <Link
+                href="/privacy"
+                className=" opacity-70 leading-[140%] text-blue-400 hover:opacity-100 transition-opacity duration-200"
+              >
+                политикой обработки персональных данных
+              </Link>
             </span>
           </div>
         </div>
