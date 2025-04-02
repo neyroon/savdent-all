@@ -67,7 +67,7 @@ export const MainBlock = ({ data }) => {
                 </>
               )}
             </h1>
-            <span className="text-[20px]  text-text-main font-medium leading-[140%]">
+            <span className="md:text-[20px] text-[16px]  text-text-main font-medium leading-[140%]">
               Устраняем боль, восстанавливаем зубы и возвращаем уверенность в
               улыбке
             </span>
