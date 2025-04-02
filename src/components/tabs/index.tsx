@@ -60,6 +60,7 @@ const Tabs = ({ data }) => {
                   onClick={() => {
                     setIsModalOpen(true);
                     setServiceName(cEl?.name);
+                    ym(100720922, "reachGoal", "popup_service");
                   }}
                 >
                   Записаться
@@ -96,6 +97,7 @@ const Tabs = ({ data }) => {
             onClick={() => {
               setIsModalOpen(true);
               setServiceName(cEl.name);
+              ym(100720922, "reachGoal", "popup_service");
             }}
           >
             Записаться

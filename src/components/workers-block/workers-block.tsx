@@ -83,6 +83,7 @@ export const WorkersBlock = ({ data }) => {
                       onClick={() => {
                         setIsModalOpen(true);
                         setName(el?.title);
+                        ym(100720922, "reachGoal", "popup_dentist");
                       }}
                     >
                       Записаться

@@ -87,13 +87,19 @@ export const Header = () => {
             </div>
             <button
               className=" md:block cursor-pointer hidden text-[16px] font-medium text-white leading-[140%] transition-colors duration-200 bg-cl-main hover:bg-cl-main-hover py-[15px] px-[30px] rounded-full"
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                setIsModalOpen(true);
+                ym(100720922, "reachGoal", "popup_default");
+              }}
             >
               Записаться на прием
             </button>
             <button
               className="md:hidden block cursor-pointer  text-[14px] font-medium text-white leading-[140%] transition-colors duration-200 bg-cl-main hover:bg-cl-main-hover py-[11px] px-[10px] rounded-full"
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                setIsModalOpen(true);
+                ym(100720922, "reachGoal", "popup_default");
+              }}
             >
               Записаться
             </button>
@@ -167,7 +173,10 @@ export const Header = () => {
             </div>
             <button
               className="text-[16px] cursor-pointer w-[222px] font-medium text-white leading-[140%] transition-colors duration-200 bg-cl-main hover:bg-cl-main-hover py-[15px] px-[30px] rounded-full"
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                setIsModalOpen(true);
+                ym(100720922, "reachGoal", "popup_default");
+              }}
             >
               Записаться на прием
             </button>

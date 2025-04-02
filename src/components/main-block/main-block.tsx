@@ -74,7 +74,10 @@ export const MainBlock = ({ data }) => {
             <div className="flex flex-col xl:flex-row gap-[15px]">
               <button
                 className="text-[16px] cursor-pointer font-medium text-white leading-[140%] transition-colors duration-200 bg-cl-main hover:bg-cl-main-hover py-[15px] xl:px-[30px] text-center rounded-full"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  setIsModalOpen(true);
+                  ym(100720922, "reachGoal", "popup_default");
+                }}
               >
                 Записаться на бесплатный прием
               </button>
@@ -121,6 +124,7 @@ export const MainBlock = ({ data }) => {
                     onClick={() => {
                       setIsModalOpen(true);
                       setName(slide?.description);
+                      ym(100720922, "reachGoal", "popup_dentist");
                     }}
                   >
                     Записаться
