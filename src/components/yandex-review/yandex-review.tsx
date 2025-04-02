@@ -89,7 +89,7 @@ export const YandexReview = ({ data }) => {
                       {el?.review_text}
                     </p>
                     <Link
-                      href={el.link}
+                      href={el?.link}
                       className="text-[12px] leading-[20.8px] text-gray-border  "
                     >
                       Читать подробнее
