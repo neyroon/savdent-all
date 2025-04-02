@@ -12,7 +12,6 @@ export const YandexMetrika = () => {
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
    ym(100720922, "init", {
-        defer: true,
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
