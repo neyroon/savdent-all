@@ -87,7 +87,7 @@ export const MainBlock = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="rounded-[30px] h-[335px] md:h-[562px]  md:w-[calc(50%-10px)]">
+        <div className="rounded-[30px] h-[460px] md:h-[562px]  md:w-[calc(50%-10px)]">
           <Swiper
             spaceBetween={16}
             slidesPerView={1}
