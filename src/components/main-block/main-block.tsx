@@ -119,16 +119,18 @@ export const MainBlock = ({ data }) => {
                       {slide?.description}
                     </span>
                   </div>
-                  <button
-                    className="absolute cursor-pointer right-[10px] md:right-[30px] bottom-[10px] md:bottom-[17px]  text-[16px] font-medium text-cl-main leading-[140%] transition-colors duration-200 z-50 bg-white hover:text-text-main py-[8px] px-[20px] rounded-full"
-                    onClick={() => {
-                      setIsModalOpen(true);
-                      setName(slide?.description);
-                      ym(100720922, "reachGoal", "popup_dentist");
-                    }}
-                  >
-                    Записаться
-                  </button>
+                  {!slide?.removeButton && (
+                    <button
+                      className="absolute cursor-pointer right-[10px] md:right-[30px] bottom-[10px] md:bottom-[17px]  text-[16px] font-medium text-cl-main leading-[140%] transition-colors duration-200 z-50 bg-white hover:text-text-main py-[8px] px-[20px] rounded-full"
+                      onClick={() => {
+                        setIsModalOpen(true);
+                        setName(slide?.description);
+                        ym(100720922, "reachGoal", "popup_dentist");
+                      }}
+                    >
+                      Записаться
+                    </button>
+                  )}
                 </div>
               </SwiperSlide>
             ))}
