@@ -78,16 +78,18 @@ export const WorkersBlock = ({ data }) => {
                         loading="lazy"
                       />
                     )}
-                    <button
-                      className="absolute cursor-pointer right-[20px] top-[20px] text-[16px] font-medium text-cl-main leading-[140%] transition-colors duration-200 bg-white hover:text-text-main py-[8px] px-[20px] rounded-full"
-                      onClick={() => {
-                        setIsModalOpen(true);
-                        setName(el?.title);
-                        ym(100720922, "reachGoal", "popup_dentist");
-                      }}
-                    >
-                      Записаться
-                    </button>
+                    {!el.removeButton && (
+                      <button
+                        className="absolute cursor-pointer right-[20px] top-[20px] text-[16px] font-medium text-cl-main leading-[140%] transition-colors duration-200 bg-white hover:text-text-main py-[8px] px-[20px] rounded-full"
+                        onClick={() => {
+                          setIsModalOpen(true);
+                          setName(el?.title);
+                          ym(100720922, "reachGoal", "popup_dentist");
+                        }}
+                      >
+                        Записаться
+                      </button>
+                    )}
                   </div>
                   <div className="flex flex-col gap-[10px]">
                     <span className="text-[16px] text-[#100F10] leading-[140%] text-center h-[45px]">
@@ -102,7 +104,7 @@ export const WorkersBlock = ({ data }) => {
                   </div>
                   <div className="flex gap-[10px]">
                     {el.certificates?.certificate_item.map((item, i) => (
-                      <>
+                      <React.Fragment key={i}>
                         {item?.cert?.url && (
                           <Link
                             href={`${ADMIN_URL}${item?.cert?.url}`}
@@ -123,7 +125,7 @@ export const WorkersBlock = ({ data }) => {
                             )}
                           </Link>
                         )}
-                      </>
+                      </React.Fragment>
                     ))}
                   </div>
                 </div>
