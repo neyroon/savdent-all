@@ -1,14 +1,14 @@
 "use client";
-import React, { Fragment, useState } from "react";
+import Image from "next/image";
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Section } from "../section/section";
-import { FormPopup } from "../form-popup/form-popup";
-import Image from "next/image";
 import { ADMIN_URL } from "../constants";
+import { FormPopup } from "../form-popup/form-popup";
 import { useIsMobile } from "../hooks/use-is-mobile";
+import { Section } from "../section/section";
 
 export const MainBlock = ({ data }) => {
   const content = [
@@ -42,7 +42,7 @@ export const MainBlock = ({ data }) => {
       ),
     },
     { title: "Стыдитесь улыбки", text: "восстановим за 1 день" },
-    { title: "Безопасно", text: "гарантируем 1 год" },
+    { title: "Безопасно", text: "даем гарантию" },
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
