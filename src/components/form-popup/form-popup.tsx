@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import { Modal } from "../modal/modal";
 import { useMask } from "@react-input/mask";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { useIsMobile } from "../hooks/use-is-mobile";
 import { Loader } from "../icons/loader";
+import { Modal } from "../modal/modal";
 
 export const FormPopup = ({
   isModalOpen,
@@ -24,6 +24,7 @@ export const FormPopup = ({
   const [isError, setIsError] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState(false);
 
   const inputRef = useMask({
     mask: "+7 (___) ___-__-__",
@@ -32,6 +33,14 @@ export const FormPopup = ({
 
   const handleButtonClick = async (e) => {
     e.preventDefault();
+
+    if (phone.length !== 18) {
+      setPhoneError(true);
+      return;
+    } else {
+      setPhoneError(false);
+    }
+
     try {
       setIsLoading(true);
       const res = await fetch("/callback", {
@@ -111,16 +120,24 @@ export const FormPopup = ({
                 }}
                 required
               />
-              <input
-                type="tel"
-                ref={inputRef}
-                className="p-[15px] py-[19px] rounded-[6px] bg-bg placeholder:text-gray-border"
-                placeholder="Номер телефона"
-                onInput={(e) => {
-                  setPhone(e.currentTarget.value);
-                }}
-                required
-              />
+              <label htmlFor="tel">
+                <input
+                  id="tel"
+                  type="tel"
+                  ref={inputRef}
+                  className="p-[15px] w-full py-[19px] rounded-[6px] bg-bg placeholder:text-gray-border"
+                  placeholder="+7 "
+                  onInput={(e) => {
+                    setPhone(e.currentTarget.value);
+                  }}
+                  required
+                />
+                {phoneError && (
+                  <div className="pl-5 pt-2 text-red-500">
+                    Введите правильный номер
+                  </div>
+                )}
+              </label>
 
               <div className="flex flex-col gap-[15px]">
                 <div className="flex xl:flex-row flex-col gap-[10px] md:gap-[30px]">
